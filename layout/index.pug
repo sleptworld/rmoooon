@@ -1,0 +1,34 @@
+extends ./partial/body
+
+block head
+    div.ss
+        span(class="quo") "
+        span.slogan!= theme.slogan
+        span(class="quo",style={"margin-top":"15px"}) "
+
+block content
+    each article in page.posts.data
+        - var title_link = article.link || article.path
+        - var article_content = article.excerpt || article.content
+        .post 
+            a.article-title(href=url_for(title_link))= article.title
+            .article-meta 
+                .part
+                    i(class="far fa-clock") 
+                    time.article-time= full_date(article.date,'MMMM Do YYYY, h:mm:ss a')
+
+
+                .part
+                    i(class="far fa-folder-open")
+                    if (article.categories.length !== 0)
+                        != list_categories(article.categories,c_options)
+                    else
+                        = '/'
+                if(article.tags.length !== 0)
+                    .part
+                        i(class="fas fa-tags")
+                        != list_tags(article.tags,t_options)
+
+            
+            .article-content!= article_content
+            a.more(href=url_for(title_link) + '#more') More

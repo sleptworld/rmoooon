@@ -1,0 +1,14 @@
+extends ./partial/body
+
+block head 
+        div.ss
+            span(class="quo") "
+            if (page.type === "categories")
+                span.slogan!= page.title
+            span(class="quo",style={"margin-top":"15px"}) "
+
+
+
+block content
+    if (page.type === "categories")
+        include ./partial/cat

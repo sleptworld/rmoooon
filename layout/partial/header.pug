@@ -1,0 +1,19 @@
+meta(charset="utf-8")
+title
+    block site_title
+        = config.title + ' - ' + config.subtitle
+
+link(rel="stylesheet", href="https://cdn.bootcdn.net/ajax/libs/minireset.css/0.0.2/minireset.min.css")
+link(rel="stylesheet", href=url_for("css/main.css"))
+link(rel="stylesheet", href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css")
+link(rel="stylesheet", href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+- var f_url = url_for("font/Garamonb.ttf")
+style.
+    @font-face{
+        font-family: "gb";
+        src: url(#[!= f_url]) format('truetype');
+    }
+
+script(src="//code.jquery.com/jquery-3.3.1.min.js") 
+script(src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js") 
+script(src="//unpkg.com/valine/dist/Valine.min.js") 

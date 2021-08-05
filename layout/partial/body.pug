@@ -1,0 +1,29 @@
+doctype html
+
+include variables
+html(lang="zh-CN")
+    head
+        include ./header
+    body 
+        div#container
+            .hh 
+                .hl
+                    span.author!= config.author
+                    span.email!= theme.email
+                block head
+            .posts
+                block content
+
+
+            -
+                var options = {
+                    prev_text:"< ",
+                    next_text:" >"
+                }
+
+            #pagination
+                if(!is_post() && page.total != 1)
+                    .pagination 
+                        != paginator(options)
+
+            include ./footer.pug
