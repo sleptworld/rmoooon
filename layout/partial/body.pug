@@ -8,7 +8,8 @@ html(lang="zh-CN")
         div#container
             .hh 
                 .hl
-                    span.author!= config.author
+                    a(href=url_for(config.site))
+                        span.author!= config.author
                     span.email!= theme.email
                 block head
             .posts

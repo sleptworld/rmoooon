@@ -4,14 +4,15 @@ block head
     div.ss
         span(class="quo") "
         span.slogan!= theme.slogan
-        span(class="quo",style={"margin-top":"15px"}) "
+        span(class="quo",id="b-quo") "
 
 block content
     each article in page.posts.data
         - var title_link = article.link || article.path
         - var article_content = article.excerpt || article.content
         .post 
-            a.article-title(href=url_for(title_link))= article.title
+            a.article-title(href=url_for(title_link))
+                span= article.title
             .article-meta 
                 .part
                     i(class="far fa-clock") 

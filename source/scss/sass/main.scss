@@ -1,0 +1,488 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+
+@import "compass/reset";
+@import "compass/css3";
+
+@import "compass/typography/vertical_rhythm";
+
+// @media screen and (min-width:1600px) {
+// 	$base-font-size: 12px;
+// 	$base-line-height: 18px;
+// 	$rhythm-unit: "rem";
+// 	$round-to-nearest-half-line: true;
+
+// 	@include establish-baseline();
+// }
+
+
+// @media screen and (max-width:1600px) {
+// 	$base-font-size: 20px;
+// 	$base-line-height: 35px;
+// 	$rhythm-unit: "rem";
+// 	$round-to-nearest-half-line: true;
+
+// }
+$base-font-size: 12px;
+$base-line-height: 18px;
+$rhythm-unit: "rem";
+$round-to-nearest-half-line: true;
+
+@import "mixins";
+
+
+$ot-font: "garamond","gb";
+$d_gray: #383a42;
+$p_gray: #656565;
+
+
+@include establish-baseline();
+
+html {
+	font-family: "Source Han Sans","Microsoft Yahei";
+	-webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: auto;
+}
+
+a{
+	color: #656565;
+	text-decoration: none;
+}
+
+.hl {
+	height: 40px;
+	border: {
+		bottom: 2px double black;
+	}
+
+	@include display-flex();
+	@include flex-wrap(nowrap);
+
+	font: {
+		size: 1.2rem;
+		weight: bold;
+	}
+
+	span {
+		@include fit-content-width;
+		@include fit-content-height;
+	}
+
+	justify-content: space-between;
+	align-items: center;
+
+	.author,.email {
+		font-family: $ot-font;
+	}
+}
+
+.ss {
+	margin: 15% 0;
+	.quo {
+		display: block;
+		font-size: 3rem;
+		line-height: 3rem;
+	}
+
+	#b-quo {
+		margin-top: 15px;
+	}
+
+	.slogan {
+		line-height: 5.5rem;
+
+		font: {
+			size: 3rem;
+			weight: bolder;
+		}
+
+		letter-spacing: 1px;
+
+		width: 30%;
+	}
+}
+#container{
+	width: 40%;
+	margin: 0 auto;
+
+	@media screen and (max-width:1600px){
+		width: 90%;
+	}
+}
+
+.article-title{
+	display: block;
+
+	@include adjust-font-size-to(2rem);
+	font-weight: 500;
+
+	margin: 0;
+
+	color: white;
+	background-color: black;
+
+	@include fit-content-width;
+
+	padding: 0 5px;
+
+	&:hover {
+		transition: 5ms;
+		background-color: white;
+		color: black;
+
+		border: dashed black 1px;
+	}
+}
+
+.article-meta {
+	@include display-flex();
+	align-items: center;
+	@include adjust-font-size-to(1.28rem);
+
+	margin: 10px 0 30px 0;
+	color: $d_gray;
+
+	.part {
+		@include display-flex();
+		align-items: center;
+		margin-right: 10px;
+	}
+
+	i{
+		margin-right: 5px;
+	}
+}
+
+.article-content{
+	@include adjust-font-size-to(1.35rem);
+
+	margin: 15px 0 25px 0;
+
+	img {
+		display: none;
+	}
+
+	color: $p_gray;
+
+}
+
+.more{
+	color: black;
+	font-size: 1.2rem;
+
+	border: solid black 2px;
+
+	padding: 3px 6px;
+
+	&:hover{
+		transition: 0.2s;
+		color: white;
+
+		background-color: black;
+	}
+}
+
+.post{
+	margin-bottom: 65px;
+}
+
+#pagination{
+	margin-top: 50px;
+
+	.pagination{
+		@include display-flex();
+
+		justify-content: center;
+		align-items: center;
+
+		font-size: 1.52rem;
+
+		.page-number,.next,.prev{
+			display: block;
+
+			@include fit-content-width;
+			@include fit-content-height;
+			margin: 5px;
+		}
+	}
+}
+
+.inner-title{
+	@include adjust-font-size-to(3.2rem);
+
+	text-align: center;
+	font-weight: bold;
+
+	width:70%;
+	margin: 15% auto 0 auto;
+}
+
+.inner-meta{
+	@include display-flex();
+	@include flex-wrap(nowrap);
+
+	justify-content: space-between;
+	margin: 20px auto;
+
+	@include fit-content-width;
+
+	font: {
+		weight: bolder;
+	}
+
+	i {
+		margin: 5px;
+	}
+	.inner-part {
+		padding: 0 10px;
+	}
+}
+
+.inner-content {
+	@include adjust-font-size-to(1.45rem);
+
+	letter-spacing: 0.08rem;
+	margin: 100px 0;
+
+	p{
+		color: #333333;
+		margin-bottom: 24px;
+	}
+
+	img {
+		display: block;
+		margin: 60px auto;
+		width: 100%;
+	}
+
+	h1,h2,h3,h4,h5,h6{
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+
+	h1{
+		@include adjust-font-size-to(3.2rem);
+		&::before{
+			content: "#";
+		}
+	}
+
+	h2{
+		@include adjust-font-size-to(2.4rem);
+		&::before{
+			content: "##";
+		}
+	}
+
+	h3{
+		@include adjust-font-size-to(1.872rem);
+		&::before{
+			content: "###";
+		}
+	}
+
+	h4{
+		@include adjust-font-size-to(1.6rem);
+		&::before{
+			content:"####";
+		}
+	}
+	h5{
+		@include adjust-font-size-to(1.322rem);
+		&::before{
+			content: "#####";
+		}
+	}
+	h6{
+		@include adjust-font-size-to(1.2rem);
+		&::before{
+			content: "######";
+		}
+	}
+
+	ul{
+		margin: 20px 0;
+		list-style-type: none;
+
+		padding-left: 8px;
+
+		li{
+			margin: 5px 0;
+			&::before{
+				content:"\f0eb";
+				font-family: "Font Awesome 5 Free";
+				display: inline-block;
+				color: black;
+				margin-right: 6px;
+			}
+		}
+	}
+
+	ol {
+		margin: 20px 0;
+		padding-left: 30px;
+		::marker {
+			font-size: 1.92rem;
+			font-weight: bold;
+		}
+	}
+
+	hr {
+		border: 5px dashed #eeeeee;
+
+		width: 5px;
+
+		margin: 50px auto;
+	}
+
+	.highlight{
+		width: 70%;
+		margin: 20px auto;
+	}
+
+	.highlight table{
+		width: 100%;
+	}
+
+	.highlight figcaption{
+		margin-bottom: 15px;
+		@include adjust-font-size-to(1.44rem);
+	}
+
+	@import "hl";
+
+	blockquote{
+		@include fit-content-width;
+		@include fit-content-width;
+
+		padding: 10px 20px;
+
+		border-left: 4px solid #666;
+
+		p{
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+	}
+
+}
+
+.vempty {
+	visibility: hidden;
+}
+
+.innernav{
+	@include display-flex();
+
+
+	align-items: center;
+	justify-content: space-between;
+
+	margin-top: 100px;
+
+	font-size: 0.9rem;
+
+	border-top: $d_gray dashed 1px;
+	border-bottom: $d_gray dashed 1px;
+	padding: 15px 5px;
+
+	.lnav{
+		display: block;
+
+		@include fit-content-width;
+	}
+}
+
+footer{
+	margin-top: 130px;
+	height: 50px;
+
+	border-top: 2px double black;
+	@include display-flex();
+
+	align-items: center;
+	justify-content: space-between;
+
+	font-size: 1.28rem;
+
+	font-family: $ot-font;
+}
+
+.cat{
+	@include fit-content-width;
+	
+
+	margin: 0 auto;
+
+	font-size: 1.44rem;
+
+	i{
+		margin: 5px;
+	}
+	.cs-list-item{
+		margin: 5px 0;
+	}
+
+	.cs-list-child{
+		margin-left: 40px;
+	}
+
+	.cs-list-count {
+		font-size: 1.2rem;
+		color: $d_gray;
+		&::before{
+			content: "(";
+			margin-left: 8px;
+		}
+		&::after{
+			content: ")";
+		}
+	}
+}
+
+$base-font-size: 24px;
+$base-line-height: 35px;
+$rhythm-unit: "rem";
+$round-to-nearest-half-line: true;
+
+@media screen and (max-width:1600px) {
+	@include establish-baseline();
+
+	html{
+		text-size-adjust: none;
+	}
+
+	.hl{
+		height: 7vh;
+
+		font: {
+			size: 1.5rem;
+		}
+
+		border-bottom: 6px double black;
+	}
+	.article-meta{
+		display: block;
+		margin-top: 10px;
+	}
+
+	footer{
+		height: 7vh;
+
+		font: {
+			size:1.5rem;
+		}
+
+		border-top: 6px double black;
+	}
+	#vcomments{
+		display: none;
+	}
+	.inner-title{
+		width: 90%;
+	}
+}

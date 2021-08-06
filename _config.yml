@@ -2,3 +2,5 @@ slogan: "Hello,World"
 fancybox: true
 
 email: qwin7989@gmail.com
+sass:
+  outputStyle: expanded # "expanded" or "compressed"
